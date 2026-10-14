@@ -31,6 +31,16 @@ A native Python module utilizing `scipy.optimize` to invert the Lee bio-optical 
 - Employs non-linear least squares (`curve_fit`) to retrieve coastal water quality parameters from surface reflectance.
 - Generates spatial maps of Chlorophyll-a, Sediments (NAP), CDOM, and shallow bathymetry.
 
+- ### 5. `pollutant_dispersion_solver.m`
+A custom 2D hydrodynamic dispersion module demonstrating the fundamental numerical methods used in commercial solvers (e.g., MOHID, TELEMAC).
+- Eulerian Advection: Implements an Upwind scheme on an Arakawa-C grid to model continuous pollutant concentration fields (e.g., oil spills) while ensuring mass conservation.
+- Lagrangian Tracking: Utilizes a 4th-order Runge-Kutta (RK4) integration for highly precise discrete particle tracking across the modeled current velocity fields.
+
+- ### 6. `barotropic_streamfunction_solver.m`
+A numerical solver for wind-driven barotropic ocean circulation based on the streamfunction elliptic equation.
+- Implements a finite difference method with an iterative relaxation scheme.
+- Demonstrates rigorous, manual mathematical handling of spatial boundary conditions (coastal and open-ocean edges).
+
 ## Tech Stack
 - Languages: MATLAB, Python (NumPy, SciPy, XGBoost)
 - Data Types: NetCDF, Oceanographic profiles (CTD, ADCP), Hydrodynamic model outputs.

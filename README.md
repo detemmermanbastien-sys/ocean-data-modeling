@@ -41,6 +41,13 @@ A numerical solver for wind-driven barotropic ocean circulation based on the str
 - Implements a finite difference method with an iterative relaxation scheme.
 - Demonstrates rigorous, manual mathematical handling of spatial boundary conditions (coastal and open-ocean edges).
 
+- ### 7. `glider_multisensor_fusion.m`
+An operational data engineering pipeline designed to process and fuse raw autonomous glider datasets.
+- Raw Data Ingestion: Parses unstructured text files (`.raw`, `.pld1`), utilizing regular expressions to clean corrupted timestamps and map heterogeneous sensor columns.
+- Spatial Synchronization: Merges secondary sensor payloads (ADCP, UVP6, UBAT) onto the master trajectory using K-Nearest Neighbors (`knnsearch`) and Haversine distance thresholds.
+- Bio-Optical Processing: Applies literature-backed algorithms (Messié et al., 2019) with moving median filters to separate zooplankton flashes from background dinoflagellate bioluminescence.
+- Standardization: Calculates thermodynamic properties (TEOS-10) and exports the cleaned dataset to standardized `.cnv` formats.
+
 ## Tech Stack
 - Languages: MATLAB, Python (NumPy, SciPy, XGBoost)
 - Data Types: NetCDF, Oceanographic profiles (CTD, ADCP), Hydrodynamic model outputs.
